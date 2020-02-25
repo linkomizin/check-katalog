@@ -7,6 +7,7 @@ path =("Z:\\ue video\\")
 scandiretories = os.listdir(path)
 time_item = os.stat(path).st_ctime_ns
 times = []
+
 # for d in scandiretories():
 #     time_item = os.stat(d).st_ctime
 #     time_item.append(times)
