@@ -15,7 +15,7 @@ times = []
 
 
 for entry in os.scandir(path):
-    print(datetime.datetime(entry.stat().st_ctime).strtime)
+    print((datetime.datetime(int(entry.stat().st_ctime)).strtime))
     # print(entry.path, entry.name, entry.stat())
 
   
