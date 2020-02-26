@@ -2,21 +2,26 @@ import os
 import time
 import pprint
 import datetime
+import time
 
-path =("Z:\\ue video\\")
+path =("c:\\Temp\\")
 scandiretories = os.listdir(path)
-time_item = os.stat(path).st_ctime_ns
+time_item = os.stat(path).st_ctime
+time_item = time.ctime(int(time_item))
 times = []
 
 # for d in scandiretories():
 #     time_item = os.stat(d).st_ctime
 #     time_item.append(times)
 # pprint.pprint(scandiretories)
+
 # print (time_item)
 
 
 for entry in os.scandir(path):
-    print((datetime.datetime(int(entry.stat().st_ctime)).strtime))
+    print((time.ctime(int(entry.stat().st_ctime))))
+    scandiretories = os.listdir(entry)
+    print (scandiretories)
     # print(entry.path, entry.name, entry.stat())
 
   
