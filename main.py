@@ -8,38 +8,43 @@ import sys
 
 
 
-path =("//Users//akira//Downloads//")
+path =("//Users//akira//Downloads//python и pyqt5 ирм")
 scandiretories = os.listdir(path)
 time_item = os.stat(path).st_ctime
 time_item = time.ctime(int(time_item))
-times = []
-times.append(scandiretories)
+
 # my_string = ("__".join(times))
 # pprint.pprint(my_string)
 
-
 # d = os.stat(file).st_ctime
 
-for f in times:
-    k = len(f)
-    print(k)
-    # print(path + f)
-    # aas = os.stat(path + str(f)).st_ctime
-    # print(aas)
-    # time_item = os.stat(d).st_ctime
-#     time_item.append(times)
-# pprint.pprint(scandiretories)
-print(f)
+w = os.walk(path, topdown=True)
 
-# print (scandiretories)
-# print (scandiretories, time_item)
+for cat, dir, file in w:
+    print(cat, dir, file)
+
+def scaner1():
+    for f in scandiretories:
+
+        # print(f)
+        print(path + f)
+        aas = os.stat(path + f).st_ctime
+        aas = time.ctime(aas)
+        print(aas)
 
 
-# for entry in os.scandir():
-#     print((time.ctime(int(entry.stat().st_ctime))))
-#     scandiretories = os.listdir(entry)
-#     print (scandiretories)
-    # print(entry.path, entry.name, entry.stat())
+def scaner2():
+    for entry in os.scandir(path):
+        d = entry.path
+        d = os.stat(d).st_ctime
+        d = time.ctime(d)
+        print(entry.path)
+        print(d)
+
+        # print(entry.path, entry.name, entry.stat())
+
+
+
 
 
 
