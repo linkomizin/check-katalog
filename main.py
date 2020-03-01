@@ -20,8 +20,8 @@ time_item = time.ctime(int(time_item))
 
 w = os.walk(path, topdown=True)
 
-for cat, dir, file in w:
-    print(cat, dir, file)
+for cata, dir, file in w:
+    print(cata, dir, file)
 
 def scaner1():
     for f in scandiretories:
