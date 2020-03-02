@@ -20,8 +20,17 @@ time_item = time.ctime(int(time_item))
 
 w = os.walk(path, topdown=True)
 
+a =[]
 for cata, dir, file in w:
-    print(cata, dir, file)
+    data = {}
+    print(cata)
+    # data.update({"name_catalog": cata})
+    for catalog_directory in cata:
+        data.update({"name": catalog_directory})
+#    print(data)
+    a.append(data)
+print(data)
+
 
 def scaner1():
     for f in scandiretories:
