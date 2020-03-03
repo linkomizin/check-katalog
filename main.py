@@ -46,7 +46,7 @@ for cata, dir, file in w:
 print(len(catalogi))
 pprint.pprint(files)
 
-data_ct = {catalogi:}
+# data_ct = {catalogi:}
 
 
 
