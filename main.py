@@ -16,9 +16,12 @@ def system():
     if "Lin" in name_sys:
         path = ("Home")
         return path
+    if "Dar" in name_sys:
+        path = ("//Users//akira//Downloads//python и pyqt5 ирм")
+        return path
 
 
-# path =("//Users//akira//Downloads//python и pyqt5 ирм")
+# path =
 path = system()
 scandiretories = os.listdir(path)
 time_item = os.stat(path).st_ctime
@@ -32,18 +35,22 @@ time_item = time.ctime(int(time_item))
 w = os.walk(path, topdown=True)
 
 catalogi = []
-
+directories = []
+files = []
 for cata, dir, file in w:
     catalogi.append(cata.splitlines())
-     
-   
+    directories.append(dir)
+    files.append(file)
 
 
-pprint.pprint(catalogi)
+print(len(catalogi))
+pprint.pprint(files)
 
-    
+data_ct = {catalogi:}
 
-   
+
+
+
     # data.update({"name_catalog": cata})
 #     for catalog_directory in cata:
 #         data.update({"name": catalog_directory})
