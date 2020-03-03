@@ -4,11 +4,22 @@ import pprint
 import datetime
 import time
 import sys
+import platform
+
+print(platform.system())
+
+def system():
+    name_sys = platform.system()
+    if "Win" in name_sys:
+        path = ("C:\\Temp\\ПРиказы")
+        return path
+    if "Lin" in name_sys:
+        path = ("Home")
+        return path
 
 
-
-
-path =("//Users//akira//Downloads//python и pyqt5 ирм")
+# path =("//Users//akira//Downloads//python и pyqt5 ирм")
+path = system()
 scandiretories = os.listdir(path)
 time_item = os.stat(path).st_ctime
 time_item = time.ctime(int(time_item))
@@ -20,16 +31,25 @@ time_item = time.ctime(int(time_item))
 
 w = os.walk(path, topdown=True)
 
-a =[]
+catalogi = []
+
 for cata, dir, file in w:
-    data = {}
-    print(cata)
+    catalogi.append(cata.splitlines())
+     
+   
+
+
+pprint.pprint(catalogi)
+
+    
+
+   
     # data.update({"name_catalog": cata})
-    for catalog_directory in cata:
-        data.update({"name": catalog_directory})
-#    print(data)
-    a.append(data)
-print(data)
+#     for catalog_directory in cata:
+#         data.update({"name": catalog_directory})
+# #    print(data)
+#     a.append(data)
+# print(data)
 
 
 def scaner1():
