@@ -33,7 +33,7 @@ time_item = time.ctime(int(time_item))
 # d = os.stat(file).st_ctime
 
 w = os.walk(path, topdown=True)
-
+tst = {}
 catalogi = []
 directories = []
 files = []
@@ -41,10 +41,13 @@ for cata, dir, file in w:
     catalogi.append(cata.splitlines())
     directories.append(dir)
     files.append(file)
+    tst = dict.fromkeys(file)
+    print(tst)
 
+# print(tst)
 
-print(len(catalogi))
-pprint.pprint(files)
+# print(catalogi)
+# pprint.pprint(files)
 
 # data_ct = {catalogi:}
 
