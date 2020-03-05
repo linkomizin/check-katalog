@@ -1,20 +1,47 @@
-# -*- coding: UTF-8 -*-
-from os import path, listdir
-from time import ctime
+import os
+import time
+import pprint
+import datetime
+import time
+import sys
+import platform
 
-folder  =("//Users//akira//Downloads//")
-for name in listdir(folder):
-    full_name = path.join(folder, name)
-    if path.isfile(full_name):
-        name_, _ext = path.splitext(name)
-        time_info = [ctime(fn(full_name)) for fn in (path.getatime, path.getmtime, path.getctime)]
-        file = {
-            'каталог': folder,
-            'файл': full_name,
-            'файл_имя': name_,
-            'файл_расширение': _ext,
-            'время последнего доступа': time_info[0],
-            'время последнего изменения': time_info[1],
-            'время создания': time_info[2],
-        }
-        print('\n'.join('{:<30} : {}'.format(*f) for f in sorted(file.items())), '\n')
+print(platform.system())
+
+def system():
+    name_sys = platform.system()
+    if "Win" in name_sys:
+        path = ("C:\\Temp\\ПРиказы")
+        return path
+    if "Lin" in name_sys:
+        path = ("Home")
+        return path
+    if "Dar" in name_sys:
+        path = ("/Users/akira/Downloads/python и pyqt5 ирм/sudoku/modules")
+        return path
+
+path = system()
+
+s = {}
+w = os.walk(path)
+for data in w:
+    data = list(data)
+    # pprint.pprint(data)
+    print(len(data))
+    a = data[0]
+    b = data[1]
+    v = data[2]
+
+    asep = a.split(os.sep)[-1]
+    print(data)
+
+    s[asep] = a ,v
+    slovar = {asep: a, }
+
+
+
+
+pprint.pprint(s)
+
+
+
