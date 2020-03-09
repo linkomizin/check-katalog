@@ -5,6 +5,7 @@ import datetime
 import time
 import sys
 import platform
+from functools import reduce
 
 print(platform.system())
 
@@ -17,46 +18,42 @@ def system():
         path = ("Home")
         return path
     if "Dar" in name_sys:
-        path = ("/Users/akira/Downloads/python и pyqt5 ирм/sudoku/modules")
+        path = ("/Users/akira/Downloads/python и pyqt5 ирм/sudoku")
         return path
 
 path = system()
 
 s = {}
 roots = {}
-folders = {}
+di ={}
 files = {}
 
 w = os.walk(path)
 for data in w:
+
     data = list(data)
     # pprint.pprint(data)
-    print(len(data))
+    # print(len(data))
     a = data[0]
     b = data[1]
     v = data[2]
-    b = list(b)
+
+    # b = list(b)
     asep = a.split(os.sep)[-1]
-    print(asep)
-    
-    
-    roots = dict.fromkeys(a)
+
+    # roots = dict.fromkeys(a)
     folders = dict.fromkeys(b)
-
-    files = dict.fromkeys(b,v)
     # print(folders)
+    files = dict.fromkeys(v)
     # print(files)
-    # s[roots] = 
-    s[asep] =  files
 
-    # for root in a:
-    #     s[asep] = root
+    s[asep] = folders,files
 
-    # print(data)
-    # s = {asep: "data" , a: "papka", v: "file"}
-    
-    # slovar = {asep: a, }
 
+
+
+
+    # folders = reduce(dict.get, b, roots)
 
 
 

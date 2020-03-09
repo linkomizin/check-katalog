@@ -42,9 +42,9 @@ for cata, dir, file in w:
     directories.append(dir)
     files.append(file)
     tst = dict.fromkeys(file)
-    # print(tst)
+    print(dir)
 
-print(tst)
+# print(tst)
 
 # print(catalogi)
 # pprint.pprint(files)

@@ -16,29 +16,32 @@ def get_struct(rootdir):
         # создаем словарь по именам файлов
         # из последовательности files
         subdir = dict.fromkeys(files)
-
+        # print(folders[:-1])
+        # print(folders)
+        # print(dirs)
 
 
         parent = reduce(dict.get, folders[:-1], dir)
         # print(parent)
         # добавление в словарь
         parent[folders[-1]] = subdir
+        print(parent)
     return dir
-pprint.pprint(get_struct("/Users/akira/Downloads/python и pyqt5 ирм/sudoku/modules"))
-# get_struct("/Users/akira/Downloads/python и pyqt5 ирм/sudoku/modules")
+# pprint.pprint(get_struct("/Users/akira/Downloads/python и pyqt5 ирм/sudoku/modules"))
+get_struct("/Users/akira/Downloads/python и pyqt5 ирм/sudoku/modules")
 
 
 
 
 
 
-{'modules': {'mainwindow.py': None,
-             'mylabel.py': None,
-             'previewdialog.py': None,
-             'widget.py': None}}
+# {'modules': {'mainwindow.py': None,
+#              'mylabel.py': None,
+#              'previewdialog.py': None,
+#              'widget.py': None}}
 
-{'modules': {'mainwindow.py': None,
-             'mylabel.py': None,
-             'previewdialog.py': None,
-             'vasuki': {},
-             'widget.py': None}}
+# {'modules': {'mainwindow.py': None,
+#              'mylabel.py': None,
+#              'previewdialog.py': None,
+#              'vasuki': {},
+#              'widget.py': None}}
