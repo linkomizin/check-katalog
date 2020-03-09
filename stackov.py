@@ -23,6 +23,10 @@ def system():
 path = system()
 
 s = {}
+roots = {}
+folders = {}
+files = {}
+
 w = os.walk(path)
 for data in w:
     data = list(data)
@@ -31,12 +35,27 @@ for data in w:
     a = data[0]
     b = data[1]
     v = data[2]
-
+    b = list(b)
     asep = a.split(os.sep)[-1]
-    print(data)
+    print(asep)
+    
+    
+    roots = dict.fromkeys(a)
+    folders = dict.fromkeys(b)
 
-    s[asep] = a ,v
-    slovar = {asep: a, }
+    files = dict.fromkeys(b,v)
+    # print(folders)
+    # print(files)
+    # s[roots] = 
+    s[asep] =  files
+
+    # for root in a:
+    #     s[asep] = root
+
+    # print(data)
+    # s = {asep: "data" , a: "papka", v: "file"}
+    
+    # slovar = {asep: a, }
 
 
 

@@ -11,7 +11,7 @@ print(platform.system())
 def system():
     name_sys = platform.system()
     if "Win" in name_sys:
-        path = ("C:\\Temp\\ПРиказы")
+        path = ("C:\Temp\ПРиказы")
         return path
     if "Lin" in name_sys:
         path = ("Home")
@@ -42,9 +42,9 @@ for cata, dir, file in w:
     directories.append(dir)
     files.append(file)
     tst = dict.fromkeys(file)
-    print(tst)
+    # print(tst)
 
-# print(tst)
+print(tst)
 
 # print(catalogi)
 # pprint.pprint(files)
@@ -107,3 +107,19 @@ def scaner2():
 # time_sorted_list = sorted(full_list, key = os.path.getmtime)
 
 # pprint.pprint(time_sorted_list)
+
+
+
+def get_directory_structure(rootdir):
+    """
+    Creates a nested dictionary that represents the folder structure of rootdir
+    """
+    dir = {}
+    rootdir = rootdir.rstrip(os.sep)
+    start = rootdir.rfind(os.sep) + 1
+    for path, dirs, files in os.walk(rootdir):
+        folders = path[start:].split(os.sep)
+        subdir = dict.fromkeys(files)
+        parent = reduce(dict.get, folders[:-1], dir)
+        parent[folders[-1]] = subdir
+    return dir
