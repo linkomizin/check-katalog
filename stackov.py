@@ -18,7 +18,7 @@ def system():
         path = ("Home")
         return path
     if "Dar" in name_sys:
-        path = ("/Users/akira/Downloads/python и pyqt5 ирм/sudoku/modules")
+        path = ("//Users//akira//Downloads//python и pyqt5 ирм//sudoku//modules")
         return path
 
 # path = system()
@@ -26,10 +26,11 @@ def system():
 
 def get_structure():
     path = system()
+    # print(path)
     path = path.rstrip(os.sep)
     start = path.rfind(os.sep) + 1
-    s = {}
-    w = os.walk(path, False)
+    dir = {}
+    w = os.walk(path)
 
     for a, b, v in w:
 
@@ -42,17 +43,17 @@ def get_structure():
         asep = a[start:].split(os.sep)
         subdir = dict.fromkeys(v)
 
-        print(asep)
+        # print(asep)
 
-        folders = reduce(dict.get, asep[:-1], s)
-
+        folders = reduce(dict.get, asep[:-1], dir)
+        # print(folders)
 
         folders[asep[-1]] = subdir
-    return s
-    pprint.pprint(s)
+    return dir
 
 
-get_structure()
+
+print(get_structure())
 
 
 #
