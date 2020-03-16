@@ -43,14 +43,18 @@ def get_structure():
         # b = data[1]
         # v = data[2]
         asep = a[start:].split(os.sep)
-        subdir = dict.fromkeys(v)
+        print(a.join(v))
+        subdir = dict.fromkeys(v) # , os.stat(a.join(v)).st_ctime)
 
-        # print(asep)
+        
 
         folders = reduce(dict.get, asep[:-1], dir)
         # print(folders)
 
         folders[asep[-1]] = subdir
+
+        # os.stat(   ).st_ctime
+        # d = time.ctime(d)
     
     fl = open("data/database.pcl", 'wb')
     pickle.dump(dir, fl)
