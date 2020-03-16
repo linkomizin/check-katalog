@@ -6,6 +6,7 @@ import time
 import sys
 import platform
 from functools import reduce
+import pickle
 
 print(platform.system())
 
@@ -15,7 +16,7 @@ def system():
         path = ("C:\\Temp\\ПРиказы")
         return path
     if "Lin" in name_sys:
-        path = ("Home")
+        path = ("/workspace")
         return path
     if "Dar" in name_sys:
         path = ("//Users//akira//Downloads//python и pyqt5 ирм//sudoku")
@@ -32,6 +33,7 @@ def get_structure():
     dir = {}
     w = os.walk(path)
 
+
     for a, b, v in w:
 
         # data = list(data)
@@ -41,22 +43,27 @@ def get_structure():
         # b = data[1]
         # v = data[2]
         asep = a[start:].split(os.sep)
-        subdir = dict.fromkeys(v)
+        print(a.join(v))
+        subdir = dict.fromkeys(v) # , os.stat(a.join(v)).st_ctime)
 
-        # print(asep)
+        
 
         folders = reduce(dict.get, asep[:-1], dir)
         # print(folders)
 
         folders[asep[-1]] = subdir
+
+        # os.stat(   ).st_ctime
+        # d = time.ctime(d)
+    
+    fl = open("data/database.pcl", 'wb')
+    pickle.dump(dir, fl)
     return dir
 
 
 
-print(get_structure())
 
-
-#
-
-
-
+get_structure()
+fl = open("data/database.pcl", 'rb')
+e = pickle.load(fl)
+print(e)
