@@ -18,7 +18,7 @@ def system():
         path = ("Home")
         return path
     if "Dar" in name_sys:
-        path = ("//Users//akira//Downloads//python и pyqt5 ирм//sudoku//modules")
+        path = ("//Users//akira//Downloads//python и pyqt5 ирм//sudoku")
         return path
 
 # path = system()
