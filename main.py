@@ -5,6 +5,7 @@ import datetime
 import time
 import sys
 import platform
+from functools import reduce
 
 print(platform.system())
 
