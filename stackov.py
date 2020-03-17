@@ -43,7 +43,14 @@ def get_structure():
         # b = data[1]
         # v = data[2]
         asep = a[start:].split(os.sep)
-        print(a.join(v))
+        for files in v:
+            full_path = os.path.join(a,files)
+            
+            # Работает дата !!!
+            print("|->", full_path, "date: ", time.ctime(os.stat(full_path).st_ctime))
+           
+
+
         subdir = dict.fromkeys(v) # , os.stat(a.join(v)).st_ctime)
 
         
