@@ -76,7 +76,7 @@ def get_structure():
         # d = time.ctime(d)
        
     
-    fl = open("data/database.pcl", 'wb')
+    fl = open("database.pcl", 'wb')
     
     pickle.dump(dir, fl)
     
@@ -92,6 +92,6 @@ def get_structure():
 
 
 get_structure()
-fl = open("data/database.pcl", 'rb')
+fl = open("database.pcl", 'rb')
 e = pickle.load(fl)
 print(e)
