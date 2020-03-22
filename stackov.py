@@ -43,17 +43,25 @@ def get_structure():
         # b = data[1]
         # v = data[2]
         asep = a[start:].split(os.sep)
+        paths = []
+        dates = []
+        full_path = [paths, dates]
         for files in v:
-            full_path = os.path.join(a,files)
-            
+            # full_path = (os.path.join(a,files))
+            paths.append(os.path.join(a,files))
+            date = (time.ctime(os.stat(os.path.join(a, files)).st_ctime))
+            dates.append(date)
+        # print(full_path)
+
             # Работает дата !!!
-            print("|->", full_path, "date: ", time.ctime(os.stat(full_path).st_ctime))
-           
+            # print("|-> ", full_path, "date: ", time.ctime(os.stat(full_path).st_ctime))
+        # print(full_path)
+
 
 
         subdir = dict.fromkeys(v) # , os.stat(a.join(v)).st_ctime)
 
-        
+
 
         folders = reduce(dict.get, asep[:-1], dir)
         # print(folders)
@@ -62,11 +70,18 @@ def get_structure():
 
         # os.stat(   ).st_ctime
         # d = time.ctime(d)
-    
-    fl = open("data/database.pcl", 'wb')
-    pickle.dump(dir, fl)
-    return dir
+        dumping(full_path)
 
+
+
+    # fl = open("data/database.pcl", 'wb')
+    # pickle.dump(dir, fl)
+    # pickle.dump(full_path, fl)
+    # return dir
+
+def dumping(full_path):
+    fl = open("data/database.pcl", 'wb')
+    pickle.dump(full_path, fl)
 
 
 
