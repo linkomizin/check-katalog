@@ -22,7 +22,7 @@ def system():
         path = ("//Users//akira//Downloads//python и pyqt5 ирм//sudoku")
         return path
 
-# path = system()
+
 
 
 def get_structure():
@@ -38,12 +38,6 @@ def get_structure():
 
     for a, b, v in w:
 
-        # data = list(data)
-        # # pprint.pprint(data)
-        # # print(len(data))
-        # a = data[0]
-        # b = data[1]
-        # v = data[2]
         asep = a[start:].split(os.sep)
 
         for files in v:
@@ -56,25 +50,10 @@ def get_structure():
             afile= dict(dict.fromkeys(fpath, adate))
             all_file.update(afile)
 
-
-            # Работает дата !!!
-            #print("|->", fpath, "date: ", adate)
-
-
-
-
         subdir = dict.fromkeys(v) # , os.stat(a.join(v)).st_ctime)
 
-
-
         folders = reduce(dict.get, asep[:-1], dir)
-        # print(folders)
-
         folders[asep[-1]] = subdir
-
-        # os.stat(   ).st_ctime
-        # d = time.ctime(d)
-
 
     fl = open("database.pcl", 'wb')
     # pickle.dump(dir, fl)
