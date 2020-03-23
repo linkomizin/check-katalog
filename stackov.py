@@ -2,7 +2,6 @@ import os
 import time
 import pprint
 import datetime
-import time
 import sys
 import platform
 from functools import reduce
