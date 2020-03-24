@@ -15,8 +15,17 @@ db_main.append(db_dict)
 
 
 print(db_main)
-db_key = db_main[1].keys()
-# добавляю значения по ключам
-for key in db_key:
-   print(key)
 
+# добавляю значения по ключам
+for key in db_main[1].keys():
+
+	print(key)
+
+from_db_dict = ['asd', 'ssd', 'dsds','dsd', '2332']
+for dates in from_db_dict:
+	db_dict = dates
+	print (db_dict)
+print(db_main[1])
+# from_dict = dict(db_main[1])
+# db_main[1] = from_db_dict
+print ()
