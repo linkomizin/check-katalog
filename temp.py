@@ -28,11 +28,14 @@ for keys, dates in db_dict.items():
 
 def rasschet(arg1, arg2):
     print(arg1, ' ---> ', arg2)
+    new_dict =  dict.fromkeys(arg1, arg2)
+    len(new_dict)
 
 
 puh = map(rasschet, db_dict, from_db_dict)
 
-print(puh)
+for isd in puh:
+    print(isd)
 print(db_dict)
 
 
