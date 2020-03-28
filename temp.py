@@ -26,22 +26,17 @@ for keys, dates in db_dict.items():
 # for bb in from_db_dict:
 # 	reduce(db_dict.update({key: bb}), from_db_dict)
 
+def rasschet(arg1, arg2):
+    print(arg1, ' ---> ', arg2)
 
 
-for key in db_dict:
+puh = map(rasschet, db_dict, from_db_dict)
 
-    res = map(db_dict.update, from_db_dict)
-
-
+print(puh)
 print(db_dict)
 
-def rasschet():
-    a = len(from_db_dict)
-    a_idex = 0
-    while a_index < a:
-        a_idex+=a_idex
-        znachenie = from_db_dict[a_idex]
-        return znachenie
+
+
 # print(db_dict)
 # print(db_main[1])
 # from_dict = dict(db_main[1])
