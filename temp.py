@@ -31,16 +31,16 @@ def rasschet(arg1, arg2):
     new_dict =  dict.fromkeys(arg1, arg2)
     return(new_dict)
 
-
-
-
 puh = map(rasschet, db_dict, from_db_dict)
+
 for isd in puh:
     db_dict.update(isd)
+    print(isd)
 
+fol = reduce(rasschet, from_db_dict , db_dict)
+print(fol)
 
-
-print(db_dict)
+# print(db_dict)
 
 
 
