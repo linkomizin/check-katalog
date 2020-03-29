@@ -54,7 +54,7 @@ def get_structure():
         folders = reduce(dict.get, asep[:-1], dir)
         folders[asep[-1]] = subdir
 
-        print(asep[-1])
+
 
     fl = open("database.pcl", 'wb')
     pickle.dump(dir, fl, 2)
@@ -74,5 +74,5 @@ get_structure()
 fl = open("database.pcl", 'rb')
 e1 = pickle.load(fl)
 e2 = pickle.load(fl)
-# print(e2)
+print(e2)
 fl.close()
