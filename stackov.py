@@ -25,7 +25,7 @@ def system():
 def second_step():
     if (os.path.exists('database.pcl')) == False:
         get_structure(1)
-    else:
+    elif(os.path.exists('database.pcl')) == True:
         comparison_db()
 
 def get_structure(save_db):
@@ -77,3 +77,4 @@ def comparison_db():
     
 
 
+second_step()
