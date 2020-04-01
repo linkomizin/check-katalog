@@ -22,22 +22,22 @@ def system():
         return path
 
 
+def second_step():
+    if (os.path.exists('database.pcl')) == False:
+        get_structure(1)
+    else:
+        comparison_db()
 
-
-def get_structure():
+def get_structure(save_db):
     path = system()
-    # print(path)
+   
     path = path.rstrip(os.sep)
-    start = path.rfind(os.sep) + 1
-    dir = {}
     w = os.walk(path)
-    db_all_file = {}
     
+    db_all_file = {}
     date_files = []
 
     for a, b, v in w:
-
-        asep = a[start:].split(os.sep)
 
         for files in v:
             fpath = []
@@ -46,28 +46,15 @@ def get_structure():
             adate = (time.ctime(os.stat(pdata).st_ctime))
             date_files.append(adate)
 
-
             afile= dict(dict.fromkeys(fpath, adate))
             db_all_file.update(afile)
 
-        subdir = dict.fromkeys(v) # , os.stat(a.join(v)).st_ctime)
+    
+    if save_db == 1:
+        save_db_file(db_all_file)
+    elif save_db == 2:
+        return(db_all_file)
 
-        folders = reduce(dict.get, asep[:-1], dir)
-        folders[asep[-1]] = subdir
-
-    save_db_file(db_all_file)
-
-
-    # fl = open("database.pcl", 'wb')
-    # pickle.dump(dir, fl, 2)
-    # pickle.dump(db_all_file, fl, 2)
-    # fl.close()
-    #print(fpath)
-    #pprint.pprint(all_file)
-#    print('/__: ', len(all_file))
-
-
-    return dir
 
 def save_db_file(db_all_file):
     fl = open("database.pcl", 'wb')
@@ -76,23 +63,17 @@ def save_db_file(db_all_file):
 
 
 
-
-
-
-
-get_structure()
-
 def load_db_file():
     fl = open("database.pcl", 'rb')
     e1 = pickle.load(fl)
-
-    
     fl.close()
     return (e1)
 
 
 def comparison_db():
     e1 = load_db_file()
-    print(e1)
+    e2 = get_structure(2)
+    print(e2)
+    
 
-comparison_db()
+
