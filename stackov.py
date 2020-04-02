@@ -18,7 +18,7 @@ def system():
         path = ("/storage/emulated/0/Documents")
         return path
     if "Dar" in name_sys:
-        path = ("//Users//akira//Downloads//python и pyqt5 ирм//sudoku")
+        path = ("/Users/akira/Downloads/python и pyqt5 ирм/sudoku")
         return path
 
 
@@ -67,13 +67,20 @@ def load_db_file():
     fl = open("database.pcl", 'rb')
     e1 = pickle.load(fl)
     fl.close()
-    return (e1)
+    return (dict(e1))
 
 
 def comparison_db():
     e1 = load_db_file()
     e2 = get_structure(2)
-    print(e2)
+    
+    e1_keys = set(e1.keys())
+    e2_keys = set(e2.keys())
+
+    removed_keys = e1_keys - e2_keys
+    added_keys = e2_keys - e1_keys
+
+    print(added_keys, '|--| ', removed_keys )
     
 
 
