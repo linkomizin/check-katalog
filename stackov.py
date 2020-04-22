@@ -91,9 +91,17 @@ def comparison_db():
 
     modififed = {o:(e1[o], e2[o]) for o in intersect_keys if e1[o] != e2[o] }
     # print('\n', modififed)
-    kl= modififed.values()
-    print(kl)
+    sravnenie(modififed)
+    # kl = (modififed.keys(), modififed.values())
+    # kl = (modififed.items())
+    # print(kl)
     # print(e2)
 
+def sravnenie(data):
+    # print(data)
+    for  keys, values in data.items():
+        print(values)
+        if values[1] > values[0]:
+            print('новое' )
 
 second_step()
