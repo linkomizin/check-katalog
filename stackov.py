@@ -73,12 +73,17 @@ def load_db_file():
     return (dict(e1))
 
 def get_name_file(args):
-    list=[]
-    for strting in args:
-        strting = str(strting)
-        file_name = strting.rsplit(os.sep, maxsplit=1)
-        list.append(file_name[1])
-    return list
+    if isinstance(args, set):
+        list=[]
+        for strting in args:
+            strting = str(strting)
+            file_name = strting.rsplit(os.sep, maxsplit=1)
+            list.append(file_name[1])
+        return list
+    elif isinstance(args, dict):
+        list=[]
+        for key in args:
+            print('!! yes ',key.rsplit(os.sep, maxsplit=1)[1])
 
 
 
@@ -104,20 +109,20 @@ def comparison_db():
     # пересечения
     intersect_keys = e1_keys.intersection(e2_keys)
     if intersect_keys:
-        print('\nбыли найдены совпадения:\n', get_name_file(intersect_keys))
+        print('\nбыли найдены совпадения:\n', get_name_file(intersect_keys),'\n')
     # print(('пересечения\n', intersect_keys))
 
     modififed = {o:(e1[o], e2[o]) for o in intersect_keys if e1[o] != e2[o] }
-    print('\n', modififed)
-    sravnenie(modififed)
+    get_name_file(modififed)
+    # sravnenie(modififed)
     # kl = (modififed.keys(), modififed.values())
     # kl = (modififed.items())
     # print(kl)
-    # print(e2)
+    print(e2)
 
 def sravnenie(data):
-    # print(data)
-    for  keys, values in data.items():
+
+    for  keys, values in data:
         print(values)
         if values[1] > values[0]:
             print('новое' )
