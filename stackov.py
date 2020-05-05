@@ -73,10 +73,12 @@ def load_db_file():
     return (dict(e1))
 
 def get_name_file(args):
+    list=[]
     for strting in args:
         strting = str(strting)
         file_name = strting.rsplit(os.sep, maxsplit=1)
-        print(file_name[1])
+        list.append(file_name[1])
+    return list
 
 
 
@@ -91,22 +93,22 @@ def comparison_db():
     removed_keys = e1_keys - e2_keys
     if removed_keys:
         get_name_file(removed_keys)
-        print('были удалены:\n', removed_keys, '\n')
+        print('были удалены:\n', get_name_file(removed_keys), '\n')
     added_keys = e2_keys - e1_keys
     if added_keys:
         get_name_file(added_keys)
-        print('были добавлены:\n', added_keys )
+        print('были добавлены:\n', get_name_file(added_keys) )
 
     print(len(added_keys), '|--| ', len(removed_keys) )
 
     # пересечения
     intersect_keys = e1_keys.intersection(e2_keys)
     if intersect_keys:
-        print('\nбыли найдены совпадения:\n', intersect_keys)
+        print('\nбыли найдены совпадения:\n', get_name_file(intersect_keys))
     # print(('пересечения\n', intersect_keys))
 
     modififed = {o:(e1[o], e2[o]) for o in intersect_keys if e1[o] != e2[o] }
-    # print('\', modififed)
+    print('\n', modififed)
     sravnenie(modififed)
     # kl = (modififed.keys(), modififed.values())
     # kl = (modififed.items())
