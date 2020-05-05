@@ -72,11 +72,11 @@ def load_db_file():
     fl.close()
     return (dict(e1))
 
-def get_name_file(*args):
+def get_name_file(args):
     for strting in args:
         strting = str(strting)
         file_name = strting.rsplit(os.sep, maxsplit=1)
-        print(file_name[-1])
+        print(file_name[1])
 
 
 
@@ -94,6 +94,7 @@ def comparison_db():
         print('были удалены:\n', removed_keys, '\n')
     added_keys = e2_keys - e1_keys
     if added_keys:
+        get_name_file(added_keys)
         print('были добавлены:\n', added_keys )
 
     print(len(added_keys), '|--| ', len(removed_keys) )
