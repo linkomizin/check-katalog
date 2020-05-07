@@ -49,12 +49,16 @@ def get_structure(save_db):
             # adate = (time.ctime(os.stat(pdata).st_ctime))
             adate = ((os.stat(pdata).st_ctime))
             adate = datetime.fromtimestamp(adate).strftime("%d-%m-%Y %H:%M")
-            date_files.append(adate)
+            # date_files.append(adate)
+            size = os.path.getsize(pdata)
 
-            afile= dict(dict.fromkeys(fpath, adate))
-            db_all_file.update(afile)
+            data = [adate, size]
+            print(data)
+            f = dict.fromkeys(fpath, data)
+            # afile = {f: data}
+            db_all_file.update(f)
 
-
+    print(db_all_file)
     if save_db == 1:
         save_db_file(db_all_file)
     elif save_db == 2:
@@ -120,14 +124,13 @@ def comparison_db():
         print('\nбыли найдены совпадения:\n', get_name_file(intersect_keys),'\n')
     # print(('пересечения\n', intersect_keys))
 
+    # проверка на изменения файла
     modififed = {o:(e1[o], e2[o]) for o in intersect_keys if e1[o] != e2[o] }
     if modififed:
         print('\nбыли найдены изменения:' ,get_name_file(modififed), '\n')
-        sravnenie(modififed)
-    # kl = (modififed.keys(), modififed.values())
-    # kl = (modififed.items())
-    # print(kl)
-    # print(e2)
+        # sravnenie(modififed)
+
+
 
 def sravnenie(data):
 
