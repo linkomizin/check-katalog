@@ -53,12 +53,12 @@ def get_structure(save_db):
             size = os.path.getsize(pdata)
 
             data = [adate, size]
-            print(data)
+
             f = dict.fromkeys(fpath, data)
-            # afile = {f: data}
+
             db_all_file.update(f)
 
-    print(db_all_file)
+
     if save_db == 1:
         save_db_file(db_all_file)
     elif save_db == 2:
@@ -79,6 +79,7 @@ def load_db_file():
     return (dict(e1))
 
 def get_name_file(args):
+    # просто оделение названия файла от пути каталога
     if isinstance(args, set):
         list=[]
         for strting in args:
@@ -128,15 +129,16 @@ def comparison_db():
     modififed = {o:(e1[o], e2[o]) for o in intersect_keys if e1[o] != e2[o] }
     if modififed:
         print('\nбыли найдены изменения:' ,get_name_file(modififed), '\n')
-        # sravnenie(modififed)
+        sravnenie(modififed)
 
 
 
 def sravnenie(data):
+    print(data.values())
 
-    for  keys, values in data:
-        print(values)
-        if values[1] > values[0]:
-            print('новое' )
+
+
+
+
 
 second_step()
