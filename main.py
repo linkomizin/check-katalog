@@ -10,6 +10,8 @@ import pickle
 
 print(platform.system())
 
+print(os.getcwd())
+
 def system():
     name_sys = platform.system()
     if "Win" in name_sys:
@@ -83,12 +85,18 @@ def get_name_file(args):
     elif isinstance(args, dict):
         list=[]
         for key in args:
-            print('!! yes ',key.rsplit(os.sep, maxsplit=1)[1])
+            list.append(key.rsplit(os.sep, maxsplit=1)[1])
+        return list
 
 
 
 
 def comparison_db():
+    '''
+    здесь производится сравнение ключей двух словарей.
+    ключи переводятся в множество.
+    дальнейшие опрации сравнения основывываются на множествах
+    '''
     e1 = load_db_file()
     e2 = get_structure(2)
 
@@ -113,12 +121,13 @@ def comparison_db():
     # print(('пересечения\n', intersect_keys))
 
     modififed = {o:(e1[o], e2[o]) for o in intersect_keys if e1[o] != e2[o] }
-    get_name_file(modififed)
-    # sravnenie(modififed)
+    if modififed:
+        print('\nбыли найдены изменения:' ,get_name_file(modififed), '\n')
+        sravnenie(modififed)
     # kl = (modififed.keys(), modififed.values())
     # kl = (modififed.items())
     # print(kl)
-    print(e2)
+    # print(e2)
 
 def sravnenie(data):
 
