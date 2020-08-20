@@ -80,6 +80,7 @@ def load_db_file():
 
 def get_name_file(args):
     # просто оделение названия файла от пути каталога
+    # методом isinstance определем тип передаваемого объекта
     if isinstance(args, set):
         list=[]
         for strting in args:
